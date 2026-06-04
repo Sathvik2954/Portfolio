@@ -984,3 +984,97 @@ a {
         transform: translateY(0);
     }
 }
+
+/* Hero buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--black);
+    color: var(--black);
+}
+
+.btn-outline:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* About quote styling */
+.about-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    border-left: 3px solid var(--black);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: var(--gray-dark);
+}
+
+/* Education summary in about */
+.education-summary {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray);
+}
+
+.education-summary ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.education-summary li {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+/* Research note in project card */
+.research-note {
+    font-size: 0.85rem;
+    color: var(--gray-dark);
+    background: var(--gray-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    display: inline-block;
+}
+
+/* Leadership section */
+.leadership {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--gray-light);
+}
+
+.leadership .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.leadership .activity-item {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    transition: var(--transition);
+}
+
+.leadership .activity-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--black);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Adjust nav link for new sections */
+@media (max-width: 768px) {
+    .nav-links {
+        top: 60px;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+}
