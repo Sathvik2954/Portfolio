@@ -22,11 +22,19 @@
     />
   </head>
   <body>
+    <!-- Custom cursor dot -->
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="container">
         <a href="#" class="logo">PSR.</a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#education">Education</a>
@@ -36,7 +44,11 @@
           <a href="#leadership">Leadership</a>
           <a href="#contact">Contact</a>
         </div>
-        <button class="menu-toggle" aria-label="Toggle navigation menu">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle navigation menu"
+        >
           <span class="menu-line"></span>
           <span class="menu-line"></span>
           <span class="menu-line"></span>
@@ -49,7 +61,8 @@
       <div class="container">
         <h1 class="hero-title fade-in">Peesari Sathvik Reddy</h1>
         <p class="hero-subtitle fade-in delay-1">
-          AI/ML & Full-Stack Developer
+          <span class="typewriter" id="typewriter"></span
+          ><span class="cursor-blink">|</span>
         </p>
         <p class="hero-description fade-in delay-2">
           AI/ML engineer in training focused on machine learning, distributed
@@ -62,8 +75,26 @@
             <i class="fas fa-download"></i> Download Resume
           </a>
         </div>
+
+        <!-- Stats strip -->
+        <div class="hero-stats fade-in delay-4">
+          <div class="stat-item">
+            <span class="stat-number" data-target="9.12">0</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="3">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+        </div>
       </div>
-      <div class="scroll-indicator">
+      <div class="scroll-indicator" id="scrollIndicator">
         <i class="fas fa-chevron-down"></i>
       </div>
     </section>
@@ -101,7 +132,7 @@
               learning, and perseverance. A philosophy that resonates deeply
               with me is:
             </p>
-            <p class="about-quote">“Bide your time. Hide your strength.”</p>
+            <p class="about-quote">"Bide your time. Hide your strength."</p>
             <p>
               To me, it is a reminder to focus on preparation, continuous
               improvement, and letting results speak louder than words.
@@ -127,7 +158,7 @@
       </div>
     </section>
 
-    <!-- Education Section (separate card) -->
+    <!-- Education Section -->
     <section id="education" class="education">
       <div class="container">
         <h2 class="section-title">Education</h2>
@@ -166,8 +197,20 @@
     <section id="skills" class="skills">
       <div class="container">
         <h2 class="section-title">Technical Skills</h2>
+
+        <!-- Filter tabs -->
+        <div class="skill-filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="languages">Languages</button>
+          <button class="filter-tab" data-filter="frameworks">
+            Frameworks
+          </button>
+          <button class="filter-tab" data-filter="ml">ML / AI</button>
+          <button class="filter-tab" data-filter="tools">Tools</button>
+        </div>
+
         <div class="skills-classification">
-          <div class="skill-category slide-up">
+          <div class="skill-category slide-up" data-category="languages">
             <div class="category-header">
               <i class="fas fa-code category-icon"></i>
               <h3>Languages</h3>
@@ -181,7 +224,10 @@
               <span class="skill-tag">CSS</span>
             </div>
           </div>
-          <div class="skill-category slide-up delay-1">
+          <div
+            class="skill-category slide-up delay-1"
+            data-category="frameworks"
+          >
             <div class="category-header">
               <i class="fas fa-layer-group category-icon"></i>
               <h3>Frameworks & Libraries</h3>
@@ -195,7 +241,7 @@
               <span class="skill-tag">Scikit-learn</span>
             </div>
           </div>
-          <div class="skill-category slide-up delay-2">
+          <div class="skill-category slide-up delay-2" data-category="ml">
             <div class="category-header">
               <i class="fas fa-brain category-icon"></i>
               <h3>Machine Learning</h3>
@@ -205,7 +251,7 @@
               <span class="skill-tag">Deep Learning</span>
             </div>
           </div>
-          <div class="skill-category slide-up delay-3">
+          <div class="skill-category slide-up delay-3" data-category="tools">
             <div class="category-header">
               <i class="fas fa-tools category-icon"></i>
               <h3>Tools & Technologies</h3>
@@ -227,92 +273,210 @@
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
-          <!-- Zenvia -->
-          <div class="project-card slide-up">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <i class="fas fa-tshirt"></i>
+          <!-- Zenvia — flip card -->
+          <div class="project-card-wrapper slide-up">
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-content">
+                    <i class="fas fa-tshirt"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <h3>Zenvia Fashion AI System</h3>
+                  <p>
+                    Intelligent fashion platform with size estimation using
+                    MediaPipe Pose, color analysis with ResNet50, virtual
+                    wardrobe, and weather-based outfit suggestions.
+                  </p>
+                  <p class="research-note">
+                    <i class="fas fa-file-alt"></i> Paper presented at
+                    ICAIATI‑2025 (under publication)
+                  </p>
+                  <div class="project-tech">
+                    <span>Python</span><span>Flask</span><span>ML</span
+                    ><span>MediaPipe</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
               </div>
-            </div>
-            <div class="project-content">
-              <h3>Zenvia Fashion AI System</h3>
-              <p>
-                Intelligent fashion platform with size estimation using
-                MediaPipe Pose, color analysis with ResNet50, virtual wardrobe,
-                and weather-based outfit suggestions.
-              </p>
-              <p class="research-note">
-                <i class="fas fa-file-alt"></i> Paper presented at ICAIATI‑2025
-                (under publication)
-              </p>
-              <div class="project-tech">
-                <span>Python</span><span>Flask</span><span>ML</span
-                ><span>MediaPipe</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
+              <div class="flip-back">
+                <h3>Zenvia — Key Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> MediaPipe Pose for body
+                    measurement estimation
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> ResNet50 for color palette
+                    analysis
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Real-time weather API for
+                    outfit suggestions
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Virtual wardrobe with outfit
+                    history
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Research published at
+                    ICAIATI-2025
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
               </div>
             </div>
           </div>
+
           <!-- RAY -->
-          <div class="project-card slide-up delay-1">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <i class="fas fa-briefcase"></i>
+          <div class="project-card-wrapper slide-up delay-1">
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-content">
+                    <i class="fas fa-briefcase"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <h3>RAY — Resume-based Application Yield</h3>
+                  <p>
+                    A resume-based job opportunity discovery platform that
+                    matches resumes to real job openings using NLP-based
+                    relevance scoring. Features job freshness indicators, skill
+                    insights, and saved jobs.
+                  </p>
+                  <div class="project-tech">
+                    <span>Python</span><span>Streamlit</span><span>NLP</span
+                    ><span>scikit-learn</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="https://jobrecommender-nwtjpm3kvyxfbe7amxpdfi.streamlit.app/"
+                      target="_blank"
+                      class="project-link"
+                      ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                    >
+                    <a
+                      href="https://github.com/Sathvik2954/Job_Recommender"
+                      target="_blank"
+                      class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
               </div>
-            </div>
-            <div class="project-content">
-              <h3>RAY — Resume-based Application Yield</h3>
-              <p>
-                A resume-based job opportunity discovery platform that matches
-                resumes to real job openings using NLP-based relevance scoring.
-                Features job freshness indicators, skill insights, and saved
-                jobs.
-              </p>
-              <div class="project-tech">
-                <span>Python</span><span>Streamlit</span><span>NLP</span
-                ><span>scikit-learn</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://jobrecommender-nwtjpm3kvyxfbe7amxpdfi.streamlit.app/"
-                  target="_blank"
-                  class="project-link"
-                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
-                >
-                <a
-                  href="https://github.com/Sathvik2954/Job_Recommender"
-                  target="_blank"
-                  class="project-link"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
+              <div class="flip-back">
+                <h3>RAY — Key Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> NLP-powered resume-to-job
+                    matching
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Freshness indicator for job
+                    postings
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Skill gap analysis per listing
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Save & track applied jobs
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Deployed on Streamlit Cloud
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a
+                    href="https://jobrecommender-nwtjpm3kvyxfbe7amxpdfi.streamlit.app/"
+                    target="_blank"
+                    class="project-link"
+                    ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                  >
+                  <a
+                    href="https://github.com/Sathvik2954/Job_Recommender"
+                    target="_blank"
+                    class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
               </div>
             </div>
           </div>
+
           <!-- PathVQA -->
-          <div class="project-card slide-up delay-2">
-            <div class="project-image">
-              <div class="placeholder-content">
-                <i class="fas fa-microscope"></i>
+          <div class="project-card-wrapper slide-up delay-2">
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-content">
+                    <i class="fas fa-microscope"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <h3>PathVQA – Medical VQA</h3>
+                  <p>
+                    Multimodal VQA for pathology images using CNN encoders,
+                    attention mechanisms, and bilinear fusion – achieved 60.39%
+                    exact‑match accuracy.
+                  </p>
+                  <div class="project-tech">
+                    <span>PyTorch</span><span>CNNs</span><span>Attention</span
+                    ><span>Multimodal AI</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
               </div>
-            </div>
-            <div class="project-content">
-              <h3>PathVQA – Medical VQA</h3>
-              <p>
-                Multimodal VQA for pathology images using CNN encoders,
-                attention mechanisms, and bilinear fusion – achieved 60.39%
-                exact‑match accuracy.
-              </p>
-              <div class="project-tech">
-                <span>PyTorch</span><span>CNNs</span><span>Attention</span
-                ><span>Multimodal AI</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fab fa-github"></i> GitHub</a
-                >
+              <div class="flip-back">
+                <h3>PathVQA — Key Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> CNN encoder for pathology image
+                    features
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Attention mechanisms for focus
+                    regions
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Bilinear fusion of visual +
+                    text modalities
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 60.39% exact-match accuracy on
+                    PathVQA dataset
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Built with PyTorch end-to-end
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -366,7 +530,7 @@
       </div>
     </section>
 
-    <!-- Contact Section (only info, no form) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
@@ -378,7 +542,10 @@
             </p>
             <div class="contact-details">
               <p><i class="fas fa-user"></i> Peesari Sathvik Reddy</p>
-              <p><i class="fas fa-envelope"></i> reddysathvik2005@gmail.com</p>
+              <p class="copy-email" id="copyEmail" title="Click to copy email">
+                <i class="fas fa-envelope"></i> reddysathvik2005@gmail.com
+                <span class="copy-badge" id="copyBadge">Copied!</span>
+              </p>
               <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
             </div>
             <div class="social-links">
