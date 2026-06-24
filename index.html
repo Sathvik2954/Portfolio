@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,32 +22,27 @@
     />
   </head>
   <body>
-    <!-- Custom cursor dot -->
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- Back to top button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-      <div class="container">
+      <div class="container nav-inner">
         <a href="#" class="logo">PSR.</a>
         <div class="nav-links" id="navLinks">
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#leadership">Leadership</a>
+          <a href="#writing">Writing</a>
           <a href="#contact">Contact</a>
         </div>
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle navigation"
         >
           <span class="menu-line"></span>
           <span class="menu-line"></span>
@@ -56,41 +51,75 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ─── HERO ──────────────────────────────── -->
     <section id="home" class="hero">
-      <div class="container">
-        <h1 class="hero-title fade-in">Peesari Sathvik Reddy</h1>
-        <p class="hero-subtitle fade-in delay-1">
-          <span class="typewriter" id="typewriter"></span
-          ><span class="cursor-blink">|</span>
-        </p>
-        <p class="hero-description fade-in delay-2">
-          AI/ML engineer in training focused on machine learning, distributed
-          systems, and full-stack development, with experience spanning
-          research, product development, and real-world deployments.
-        </p>
-        <div class="hero-buttons fade-in delay-3">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="#" class="btn btn-outline" download>
-            <i class="fas fa-download"></i> Download Resume
-          </a>
+      <div class="container hero-container">
+        <div class="hero-left">
+          <p class="hero-eyebrow fade-in">AI / ML · Full-Stack · Research</p>
+          <h1 class="hero-name fade-in delay-1">
+            <span class="name-line">Peesari</span>
+            <span class="name-line name-accent">Sathvik</span>
+            <span class="name-line">Reddy</span>
+          </h1>
+          <p class="hero-subtitle fade-in delay-2">
+            <span id="typewriter"></span><span class="cursor-blink">|</span>
+          </p>
+          <p class="hero-description fade-in delay-2">
+            AI/ML engineer in training focused on machine learning, distributed
+            systems, and full-stack development — with experience spanning
+            research, product development, and real-world deployments.
+          </p>
+          <div class="hero-cta fade-in delay-3">
+            <a href="#about" class="btn btn-filled">See My Work</a>
+            <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+          </div>
         </div>
 
-        <!-- Stats strip -->
-        <div class="hero-stats fade-in delay-4">
-          <div class="stat-item">
-            <span class="stat-number" data-target="9.12">0</span>
-            <span class="stat-label">CGPA</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="3">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="2">0</span>
-            <span class="stat-label">Certifications</span>
+        <div class="hero-right fade-in delay-2">
+          <div class="info-panel">
+            <div class="info-row">
+              <span class="info-label">Currently</span>
+              <span class="info-value">B.Tech AI/ML, CBIT</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Batch</span>
+              <span class="info-value">2023 – 2027</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Location</span>
+              <span class="info-value">Hyderabad, India</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-links">
+              <a
+                href="https://github.com/Sathvik2954"
+                target="_blank"
+                class="info-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/peesari-sathvik-reddy-881967322/"
+                target="_blank"
+                class="info-link"
+              >
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a
+                href="https://medium.com/@reddysathvik2005"
+                target="_blank"
+                class="info-link"
+              >
+                <i class="fab fa-medium"></i> Medium
+              </a>
+              <a
+                href="https://leetcode.com/u/Sathvik_2954/"
+                target="_blank"
+                class="info-link"
+              >
+                <i class="fas fa-code"></i> LeetCode
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -99,12 +128,15 @@
       </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ─── ABOUT ──────────────────────────────── -->
     <section id="about" class="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <div class="about-text slide-up">
+        <div class="section-header">
+          <span class="section-label">01 — About</span>
+          <h2 class="section-title-left">Who I Am</h2>
+        </div>
+        <div class="about-body">
+          <div class="about-main slide-up">
             <p>
               I am an Artificial Intelligence & Machine Learning undergraduate
               at Chaitanya Bharathi Institute of Technology (CBIT) with a strong
@@ -115,90 +147,91 @@
               My journey in technology began with curiosity and has evolved into
               a passion for transforming ideas into impactful products. Over the
               years, I have worked on projects spanning machine learning,
-              computer vision, natural language processing, and web development,
-              while continuously exploring how technology can create meaningful
-              value.
+              computer vision, natural language processing, and web development.
             </p>
-            <p>
-              Beyond academics, I have had the opportunity to lead teams,
-              organize technical initiatives, and contribute to
-              innovation-focused communities as Vice President of the Robotics &
-              Innovation Club at CBIT. My experiences in NCC and student
-              leadership have helped shape my discipline, adaptability, and
-              collaborative mindset.
-            </p>
-            <p>
-              I believe growth happens quietly through consistent effort,
-              learning, and perseverance. A philosophy that resonates deeply
-              with me is:
-            </p>
-            <p class="about-quote">"Bide your time. Hide your strength."</p>
+            <blockquote class="about-quote">
+              "Bide your time. Hide your strength."
+            </blockquote>
             <p>
               To me, it is a reminder to focus on preparation, continuous
-              improvement, and letting results speak louder than words.
+              improvement, and letting results speak louder than words. Beyond
+              academics, I lead teams and organize technical initiatives as Vice
+              President of the Robotics & Innovation Club at CBIT.
             </p>
             <p>
-              When I'm not building projects or exploring emerging technologies,
-              you'll find me learning new concepts, contributing to technical
-              communities, or working on ideas that push me beyond my comfort
-              zone.
+              When I'm not building or researching, I write on Medium — stories
+              about technology, health, and the quieter parts of personal
+              growth.
             </p>
           </div>
-          <div class="about-image slide-up delay-1">
-            <div class="image-placeholder">
-              <div class="placeholder-content">
-                <i class="fas fa-user-graduate"></i>
-                <p>CBIT Hyderabad</p>
-                <p class="image-subtext">AI & ML Engineering</p>
-                <p class="image-subtext">CGPA: 9.12</p>
-              </div>
+          <div class="about-sidebar slide-up delay-1">
+            <div class="sidebar-block">
+              <h4>Interests</h4>
+              <ul class="sidebar-list">
+                <li>Machine Learning & Deep Learning</li>
+                <li>Computer Vision</li>
+                <li>Natural Language Processing</li>
+                <li>Full-Stack Development</li>
+                <li>Writing & Storytelling</li>
+              </ul>
+            </div>
+            <div class="sidebar-block">
+              <h4>Currently Building</h4>
+              <ul class="sidebar-list">
+                <li>CONTINUUM — Healthcare Platform</li>
+                <li>SETHU — Campus Management</li>
+                <li>Stories on Medium</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- ─── EDUCATION ──────────────────────────── -->
     <section id="education" class="education">
       <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="education-grid">
+        <div class="section-header">
+          <span class="section-label">02 — Education</span>
+          <h2 class="section-title-left">Academic Journey</h2>
+        </div>
+        <div class="edu-timeline">
           <div class="edu-card slide-up">
-            <div class="edu-icon">
-              <i class="fas fa-university"></i>
-            </div>
-            <div class="edu-details">
-              <h3>Chaitanya Bharathi Institute of Technology</h3>
-              <p class="edu-degree">
-                B.Tech in Artificial Intelligence & Machine Learning
-              </p>
-              <p class="edu-period">2023 – 2027</p>
-              <p class="edu-score">CGPA: 9.12</p>
-              <p class="edu-location">Hyderabad, India</p>
-            </div>
+            <span class="edu-period">2021 – 2023</span>
+            <h3>Sri Chaitanya Junior College</h3>
+            <p class="edu-degree">Intermediate Education (MPC)</p>
+            <p class="edu-score">981 / 1000</p>
+            <p class="edu-location">
+              <i class="fas fa-map-marker-alt"></i> Hyderabad, India
+            </p>
           </div>
-          <div class="edu-card slide-up delay-1">
-            <div class="edu-icon">
-              <i class="fas fa-school"></i>
-            </div>
-            <div class="edu-details">
-              <h3>Sri Chaitanya Junior College</h3>
-              <p class="edu-degree">Intermediate Education (MPC)</p>
-              <p class="edu-period">2021 – 2023</p>
-              <p class="edu-score">Score: 981/1000</p>
-              <p class="edu-location">Hyderabad, India</p>
-            </div>
+          <div class="edu-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <div class="edu-card edu-current slide-up delay-1">
+            <span class="edu-period"
+              >2023 – 2027 <span class="current-badge">Current</span></span
+            >
+            <h3>Chaitanya Bharathi Institute of Technology</h3>
+            <p class="edu-degree">
+              B.Tech — Artificial Intelligence & Machine Learning
+            </p>
+            <p class="edu-score">CGPA: 9.12</p>
+            <p class="edu-location">
+              <i class="fas fa-map-marker-alt"></i> Hyderabad, India
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ─── SKILLS ──────────────────────────────── -->
     <section id="skills" class="skills">
       <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
-
-        <!-- Filter tabs -->
+        <div class="section-header">
+          <span class="section-label">03 — Skills</span>
+          <h2 class="section-title-left">Technical Skills</h2>
+        </div>
         <div class="skill-filter-tabs">
           <button class="filter-tab active" data-filter="all">All</button>
           <button class="filter-tab" data-filter="languages">Languages</button>
@@ -208,11 +241,10 @@
           <button class="filter-tab" data-filter="ml">ML / AI</button>
           <button class="filter-tab" data-filter="tools">Tools</button>
         </div>
-
-        <div class="skills-classification">
-          <div class="skill-category slide-up" data-category="languages">
-            <div class="category-header">
-              <i class="fas fa-code category-icon"></i>
+        <div class="skills-grid">
+          <div class="skill-card slide-up" data-category="languages">
+            <div class="skill-card-header">
+              <i class="fas fa-code"></i>
               <h3>Languages</h3>
             </div>
             <div class="skill-tags">
@@ -224,12 +256,9 @@
               <span class="skill-tag">CSS</span>
             </div>
           </div>
-          <div
-            class="skill-category slide-up delay-1"
-            data-category="frameworks"
-          >
-            <div class="category-header">
-              <i class="fas fa-layer-group category-icon"></i>
+          <div class="skill-card slide-up delay-1" data-category="frameworks">
+            <div class="skill-card-header">
+              <i class="fas fa-layer-group"></i>
               <h3>Frameworks & Libraries</h3>
             </div>
             <div class="skill-tags">
@@ -241,48 +270,72 @@
               <span class="skill-tag">Scikit-learn</span>
             </div>
           </div>
-          <div class="skill-category slide-up delay-2" data-category="ml">
-            <div class="category-header">
-              <i class="fas fa-brain category-icon"></i>
+          <div class="skill-card slide-up delay-2" data-category="ml">
+            <div class="skill-card-header">
+              <i class="fas fa-brain"></i>
               <h3>Machine Learning</h3>
             </div>
             <div class="skill-tags">
               <span class="skill-tag">Machine Learning</span>
               <span class="skill-tag">Deep Learning</span>
+              <span class="skill-tag">Computer Vision</span>
+              <span class="skill-tag">NLP</span>
+              <span class="skill-tag">MediaPipe</span>
+              <span class="skill-tag">PyTorch</span>
             </div>
           </div>
-          <div class="skill-category slide-up delay-3" data-category="tools">
-            <div class="category-header">
-              <i class="fas fa-tools category-icon"></i>
+          <div class="skill-card slide-up delay-3" data-category="tools">
+            <div class="skill-card-header">
+              <i class="fas fa-tools"></i>
               <h3>Tools & Technologies</h3>
             </div>
             <div class="skill-tags">
               <span class="skill-tag">MongoDB</span>
               <span class="skill-tag">BeautifulSoup</span>
-              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">Git / GitHub</span>
               <span class="skill-tag">Linux</span>
               <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Supabase</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ─── PROJECTS ─────────────────────────────── -->
     <section id="projects" class="projects">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <!-- Zenvia — flip card -->
-          <div class="project-card-wrapper slide-up">
+        <div class="section-header">
+          <span class="section-label">04 — Projects</span>
+          <h2 class="section-title-left">Things I've Built</h2>
+        </div>
+
+        <div class="project-filter-tabs">
+          <button class="project-filter-tab active" data-filter="all">
+            All
+          </button>
+          <button class="project-filter-tab" data-filter="fullstack">
+            Full Stack
+          </button>
+          <button class="project-filter-tab" data-filter="aiml">AIML</button>
+          <button class="project-filter-tab" data-filter="datascience">
+            Data Science
+          </button>
+          <button class="project-filter-tab" data-filter="sde">SDE</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- 1. ZENVIA -->
+          <div class="project-card-wrapper slide-up" data-category="aiml">
             <div class="project-card flip-card">
               <div class="flip-front">
                 <div class="project-image">
-                  <div class="placeholder-content">
+                  <div class="placeholder-img">
                     <i class="fas fa-tshirt"></i>
                   </div>
                 </div>
                 <div class="project-content">
+                  <span class="project-badge aiml">AIML</span>
                   <h3>Zenvia Fashion AI System</h3>
                   <p>
                     Intelligent fashion platform with size estimation using
@@ -291,7 +344,7 @@
                   </p>
                   <p class="research-note">
                     <i class="fas fa-file-alt"></i> Paper presented at
-                    ICAIATI‑2025 (under publication)
+                    ICAIATI-2025 (under publication)
                   </p>
                   <div class="project-tech">
                     <span>Python</span><span>Flask</span><span>ML</span
@@ -340,16 +393,20 @@
             </div>
           </div>
 
-          <!-- RAY -->
-          <div class="project-card-wrapper slide-up delay-1">
+          <!-- 2. RAY -->
+          <div
+            class="project-card-wrapper slide-up delay-1"
+            data-category="fullstack"
+          >
             <div class="project-card flip-card">
               <div class="flip-front">
                 <div class="project-image">
-                  <div class="placeholder-content">
+                  <div class="placeholder-img">
                     <i class="fas fa-briefcase"></i>
                   </div>
                 </div>
                 <div class="project-content">
+                  <span class="project-badge fullstack">Full Stack</span>
                   <h3>RAY — Resume-based Application Yield</h3>
                   <p>
                     A resume-based job opportunity discovery platform that
@@ -419,21 +476,25 @@
             </div>
           </div>
 
-          <!-- PathVQA -->
-          <div class="project-card-wrapper slide-up delay-2">
+          <!-- 3. PathVQA -->
+          <div
+            class="project-card-wrapper slide-up delay-2"
+            data-category="aiml"
+          >
             <div class="project-card flip-card">
               <div class="flip-front">
                 <div class="project-image">
-                  <div class="placeholder-content">
+                  <div class="placeholder-img">
                     <i class="fas fa-microscope"></i>
                   </div>
                 </div>
                 <div class="project-content">
+                  <span class="project-badge aiml">AIML</span>
                   <h3>PathVQA – Medical VQA</h3>
                   <p>
                     Multimodal VQA for pathology images using CNN encoders,
                     attention mechanisms, and bilinear fusion – achieved 60.39%
-                    exact‑match accuracy.
+                    exact-match accuracy.
                   </p>
                   <div class="project-tech">
                     <span>PyTorch</span><span>CNNs</span><span>Attention</span
@@ -480,97 +541,662 @@
               </div>
             </div>
           </div>
+
+          <!-- 4. SETHU -->
+          <div class="project-card-wrapper slide-up" data-category="fullstack">
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-university"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge fullstack">Full Stack</span>
+                  <h3>SETHU – Campus Management Platform</h3>
+                  <p>
+                    Role-based campus management for CBIT – timetable, exams,
+                    almanac, AI study planner, requests/approvals,
+                    notifications. Built with Next.js, Supabase, FastAPI.
+                  </p>
+                  <div class="project-tech">
+                    <span>Next.js</span><span>Supabase</span><span>FastAPI</span
+                    ><span>Mistral AI</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="https://sethu-pied.vercel.app"
+                      target="_blank"
+                      class="project-link"
+                      ><i class="fas fa-external-link-alt"></i> Live</a
+                    >
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>SETHU — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> 4 roles: Student, Faculty, HOD,
+                    Admin
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Timetable / exam / almanac with
+                    PDF import (OCR + Mistral)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> AI study planner based on
+                    schedule & annotations
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Request workflows with
+                    auto-generated PDFs
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Row-Level Security + audit log
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a
+                    href="https://sethu-pied.vercel.app"
+                    target="_blank"
+                    class="project-link"
+                    ><i class="fas fa-external-link-alt"></i> Live</a
+                  >
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. CONTINUUM -->
+          <div
+            class="project-card-wrapper slide-up delay-1"
+            data-category="fullstack"
+          >
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-heartbeat"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge fullstack">Full Stack</span>
+                  <h3>CONTINUUM – Healthcare Continuity</h3>
+                  <p>
+                    Offline-first healthcare platform – patients maintain a
+                    portable health record, share with doctors, async
+                    consultations, live video calls, and automatic sync.
+                  </p>
+                  <div class="project-tech">
+                    <span>React</span><span>Node.js</span><span>MongoDB</span
+                    ><span>WebRTC</span><span>Dexie</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="https://continuum-alpha-two.vercel.app"
+                      target="_blank"
+                      class="project-link"
+                      ><i class="fas fa-external-link-alt"></i> Live</a
+                    >
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>CONTINUUM — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> Health timeline – conditions,
+                    meds, consultations
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Async voice-based consultations
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Live WebRTC video calls with
+                    recording
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Offline-first (IndexedDB) with
+                    automatic sync
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Doctor dashboards & analytics
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a
+                    href="https://continuum-alpha-two.vercel.app"
+                    target="_blank"
+                    class="project-link"
+                    ><i class="fas fa-external-link-alt"></i> Live</a
+                  >
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Hindi News -->
+          <div
+            class="project-card-wrapper slide-up delay-2"
+            data-category="aiml"
+          >
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-newspaper"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge aiml">AIML</span>
+                  <h3>Hindi News Classification</h3>
+                  <p>
+                    End-to-end system to classify Hindi news headlines using
+                    fine-tuned IndicBERTv2. Features OCR, web scraping, and a
+                    Flask web interface.
+                  </p>
+                  <div class="project-tech">
+                    <span>Flask</span><span>IndicBERT</span><span>EasyOCR</span
+                    ><span>BeautifulSoup</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="https://huggingface.co/spaces/Sathvik2954/hindi-samachar-2"
+                      target="_blank"
+                      class="project-link"
+                      ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                    >
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>Hindi News — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> Fine-tuned IndicBERTv2 (79.57%
+                    accuracy)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Live scraping from 4 major
+                    Hindi news sites
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> OCR extraction from images/PDFs
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Confidence-based predictions
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Deployed on Hugging Face Spaces
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a
+                    href="https://huggingface.co/spaces/Sathvik2954/hindi-samachar-2"
+                    target="_blank"
+                    class="project-link"
+                    ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                  >
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Telecom Churn -->
+          <div
+            class="project-card-wrapper slide-up"
+            data-category="datascience"
+          >
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge datascience">Data Science</span>
+                  <h3>Telecom Churn Analysis</h3>
+                  <p>
+                    Predicted customer churn for 7,043 telecom customers using
+                    RandomForest. Optimized decision threshold for business ROI
+                    (₹161,500) rather than accuracy.
+                  </p>
+                  <div class="project-tech">
+                    <span>Python</span><span>RandomForest</span
+                    ><span>scikit-learn</span><span>Pandas</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>Telecom Churn — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> 82.4% recall, 861 at-risk
+                    customers identified
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Threshold tuned for ROI (0.45
+                    vs default 0.5)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Top churn drivers: new
+                    customers, tenure, tech support
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Net business value: ₹161,500
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Actionable risk segments with
+                    budget
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Olist -->
+          <div
+            class="project-card-wrapper slide-up delay-1"
+            data-category="datascience"
+          >
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-shopping-cart"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge datascience">Data Science</span>
+                  <h3>Olist E-Commerce Analytics</h3>
+                  <p>
+                    End-to-end analytics pipeline on 100k+ Brazilian orders. SQL
+                    queries and a Power BI executive dashboard answering key
+                    business questions.
+                  </p>
+                  <div class="project-tech">
+                    <span>SQL</span><span>MySQL</span><span>Power BI</span
+                    ><span>Python</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>Olist — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> 97% orders delivered
+                    successfully
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Top categories: Health &
+                    Beauty, Watches
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Late deliveries drop ratings
+                    from 4.29 to 1.86
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Repeat purchase rate only 3%
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Power BI dashboard with 3 pages
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Syncpad -->
+          <div
+            class="project-card-wrapper slide-up delay-2"
+            data-category="sde"
+          >
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img"><i class="fas fa-code"></i></div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge sde">SDE</span>
+                  <h3>Syncpad – Collaborative Interview Platform</h3>
+                  <p>
+                    Real-time collaborative coding platform with live editing,
+                    audio/video, quiz system, and resume analyzer. Built in 24h
+                    hackathon – Special Mention among 500 teams.
+                  </p>
+                  <div class="project-tech">
+                    <span>React</span><span>Node</span><span>Liveblocks</span
+                    ><span>WebRTC</span><span>MongoDB</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>Syncpad — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> Collaborative code editor
+                    (Liveblocks + Monaco)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Audio/video via LiveKit WebRTC
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Quiz module & daily gamified
+                    quiz
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Resume analyzer with Mistral AI
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Special Mention – CBIT
+                    Hacktoberfest 2025
+                  </li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. EngiQuery -->
+          <div class="project-card-wrapper slide-up" data-category="sde">
+            <div class="project-card flip-card">
+              <div class="flip-front">
+                <div class="project-image">
+                  <div class="placeholder-img">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <span class="project-badge sde">SDE</span>
+                  <h3>EngiQuery – AI Document Agent</h3>
+                  <p>
+                    AI agent for technical document analysis – upload manuals,
+                    ask questions, compare specs, detect contradictions, and
+                    email reports. Uses Groq LLM + ChromaDB.
+                  </p>
+                  <div class="project-tech">
+                    <span>FastAPI</span><span>Groq</span><span>ChromaDB</span
+                    ><span>sentence-transformers</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="project-link"
+                      ><i class="fab fa-github"></i> GitHub</a
+                    >
+                  </div>
+                  <span class="flip-hint"
+                    >Hover for details <i class="fas fa-sync-alt"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="flip-back">
+                <h3>EngiQuery — Highlights</h3>
+                <ul class="flip-list">
+                  <li>
+                    <i class="fas fa-check"></i> Multi-document Q&A with
+                    citations
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Cross-document comparison &
+                    contradiction detection
+                  </li>
+                  <li><i class="fas fa-check"></i> Compliance gap checking</li>
+                  <li>
+                    <i class="fas fa-check"></i> Agent loop with tool selection
+                  </li>
+                  <li><i class="fas fa-check"></i> Email reports via Gmail</li>
+                </ul>
+                <div class="project-links flip-links">
+                  <a href="#" class="project-link"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- ─── WRITING ──────────────────────────────── -->
+    <section id="writing" class="writing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">05 — Writing</span>
+          <h2 class="section-title-left">On Medium</h2>
+        </div>
+        <p class="section-intro">
+          Beyond code and research, I write about technology, health, and the
+          quieter parts of personal growth.
+        </p>
+        <div class="articles-grid">
+          <a
+            href="https://medium.com/@reddysathvik2005/the-third-attempt-was-different-how-i-got-myself-back-after-losing-30-kg-c20a2dee79f4"
+            target="_blank"
+            class="article-card slide-up"
+          >
+            <div class="article-meta">
+              <span class="article-tag">Personal Growth</span>
+              <span class="article-readtime"
+                ><i class="fas fa-clock"></i> 6 min read</span
+              >
+            </div>
+            <h3 class="article-title">
+              The Third Attempt Was Different: How I Got Myself Back After
+              Losing 30 kg
+            </h3>
+            <p class="article-excerpt">
+              "You don't look like yourself anymore…. Sathvik!!!" — the sentence
+              I heard many times between 2021 and 2024. A story about
+              persistence, identity, and the attempt that finally stuck.
+            </p>
+            <div class="article-footer">
+              <span class="article-date">Jun 5, 2026</span>
+              <span class="article-cta"
+                >Read on Medium <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+          <div class="article-placeholder slide-up delay-1">
+            <i class="fab fa-medium placeholder-icon"></i>
+            <p>More stories coming soon.</p>
+            <a
+              href="https://medium.com/@reddysathvik2005"
+              target="_blank"
+              class="btn btn-sm btn-ghost"
+              >Follow on Medium</a
+            >
+          </div>
+        </div>
+        <div class="writing-footer">
+          <a
+            href="https://medium.com/@reddysathvik2005"
+            target="_blank"
+            class="btn btn-outline"
+          >
+            View all on Medium <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CERTIFICATIONS ──────────────────────── -->
     <section id="certifications" class="certifications">
       <div class="container">
-        <h2 class="section-title">Certifications</h2>
-        <div class="cert-grid">
-          <div class="cert-card slide-up">
-            <div class="cert-icon"><i class="fab fa-aws"></i></div>
-            <h3>AWS Certified Cloud Practitioner</h3>
-            <p>Amazon Web Services</p>
+        <div class="section-header">
+          <span class="section-label">06 — Certifications</span>
+          <h2 class="section-title-left">Credentials</h2>
+        </div>
+        <div class="cert-row">
+          <div class="cert-badge slide-up">
+            <div class="cert-logo"><i class="fab fa-aws"></i></div>
+            <div class="cert-info">
+              <h3>AWS Certified Cloud Practitioner</h3>
+              <p>Amazon Web Services</p>
+            </div>
           </div>
-          <div class="cert-card slide-up delay-1">
-            <div class="cert-icon"><i class="fab fa-salesforce"></i></div>
-            <h3>Salesforce Certified Agentforce Specialist</h3>
-            <p>Salesforce (2025)</p>
+          <div class="cert-badge slide-up delay-1">
+            <div class="cert-logo"><i class="fab fa-salesforce"></i></div>
+            <div class="cert-info">
+              <h3>Salesforce Certified Agentforce Specialist</h3>
+              <p>Salesforce · 2025</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Leadership & Activities -->
+    <!-- ─── LEADERSHIP ──────────────────────────── -->
     <section id="leadership" class="leadership">
       <div class="container">
-        <h2 class="section-title">Leadership & Activities</h2>
-        <div class="activities-grid">
-          <div class="activity-item slide-up">
-            <h4><i class="fas fa-shield-alt"></i> NCC Junior Cadet</h4>
-            <p>1(T) Naval Unit, Hyderabad</p>
-            <span class="activity-period">2018 - 2022</span>
+        <div class="section-header">
+          <span class="section-label">07 — Leadership</span>
+          <h2 class="section-title-left">Beyond the Keyboard</h2>
+        </div>
+        <div class="activities-row">
+          <div class="activity-card slide-up">
+            <div class="activity-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="activity-body">
+              <h4>NCC Junior Cadet</h4>
+              <p>1(T) Naval Unit, Hyderabad</p>
+              <span class="activity-period">2018 – 2022</span>
+            </div>
           </div>
-          <div class="activity-item slide-up delay-1">
-            <h4><i class="fas fa-robot"></i> Vice President</h4>
-            <p>Robotics & Innovation Club, CBIT</p>
-            <span class="activity-period">June 2024 - Feb 2026</span>
+          <div class="activity-card slide-up delay-1">
+            <div class="activity-icon"><i class="fas fa-robot"></i></div>
+            <div class="activity-body">
+              <h4>Vice President</h4>
+              <p>Robotics & Innovation Club, CBIT</p>
+              <span class="activity-period">Jun 2024 – Feb 2026</span>
+            </div>
           </div>
-          <div class="activity-item slide-up delay-2">
-            <h4><i class="fas fa-trophy"></i> Special Mention</h4>
-            <p>
-              CBIT Hacktoberfest Hackathon 2025 – Recognized among 500+ teams
-              for building a collaborative coding interview platform.
-            </p>
-            <span class="activity-period">24-hour virtual hackathon</span>
+          <div class="activity-card slide-up delay-2">
+            <div class="activity-icon"><i class="fas fa-trophy"></i></div>
+            <div class="activity-body">
+              <h4>Special Mention</h4>
+              <p>
+                CBIT Hacktoberfest 2025 — recognized among 500+ teams for
+                Syncpad, a collaborative coding interview platform.
+              </p>
+              <span class="activity-period">24-hour virtual hackathon</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ─── CONTACT ──────────────────────────────── -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-content">
-          <div class="contact-info slide-up">
-            <p>
-              Actively seeking internship opportunities in AI/ML and software
-              development roles. Open to collaborations and innovative projects.
+        <div class="section-header">
+          <span class="section-label">08 — Contact</span>
+          <h2 class="section-title-left">Let's Connect</h2>
+        </div>
+        <div class="contact-body">
+          <p class="contact-intro">
+            Actively seeking internship opportunities in AI/ML and software
+            development. Open to collaborations, research projects, and anything
+            interesting.
+          </p>
+          <div class="contact-details">
+            <p class="copy-email" id="copyEmail" title="Click to copy email">
+              <i class="fas fa-envelope"></i>
+              <span>reddysathvik2005@gmail.com</span>
+              <span class="copy-badge" id="copyBadge">Copied!</span>
             </p>
-            <div class="contact-details">
-              <p><i class="fas fa-user"></i> Peesari Sathvik Reddy</p>
-              <p class="copy-email" id="copyEmail" title="Click to copy email">
-                <i class="fas fa-envelope"></i> reddysathvik2005@gmail.com
-                <span class="copy-badge" id="copyBadge">Copied!</span>
-              </p>
-              <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
-            </div>
-            <div class="social-links">
-              <a
-                href="https://github.com/Sathvik2954"
-                target="_blank"
-                aria-label="GitHub"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/peesari-sathvik-reddy-881967322/"
-                target="_blank"
-                aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a
-                href="https://leetcode.com/u/Sathvik_2954/"
-                target="_blank"
-                aria-label="LeetCode"
-                ><i class="fas fa-code"></i
-              ></a>
-              <a href="#" aria-label="Resume"
-                ><i class="fas fa-file-pdf"></i
-              ></a>
-            </div>
+            <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://github.com/Sathvik2954"
+              target="_blank"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/peesari-sathvik-reddy-881967322/"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://medium.com/@reddysathvik2005"
+              target="_blank"
+              aria-label="Medium"
+              ><i class="fab fa-medium"></i
+            ></a>
+            <a
+              href="https://leetcode.com/u/Sathvik_2954/"
+              target="_blank"
+              aria-label="LeetCode"
+              ><i class="fas fa-code"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -578,10 +1204,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
+      <div class="container footer-inner">
+        <span class="logo-sm">PSR.</span>
         <p class="copyright">
           © 2026 Peesari Sathvik Reddy. All rights reserved.
         </p>
+        <a href="#home" class="footer-top">Back to top</a>
       </div>
     </footer>
 

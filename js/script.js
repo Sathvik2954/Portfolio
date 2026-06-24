@@ -1,234 +1,221 @@
-// ─── DOM Elements ───────────────────────────────────────
-const menuToggle   = document.getElementById('menuToggle');
-const navLinks     = document.getElementById('navLinks');
+// ─── DOM Elements ──────────────────────────────────────
+const menuToggle      = document.getElementById('menuToggle');
+const navLinks        = document.getElementById('navLinks');
 const scrollIndicator = document.getElementById('scrollIndicator');
-const navbar       = document.getElementById('navbar');
-const backToTop    = document.getElementById('backToTop');
-const cursorDot    = document.getElementById('cursorDot');
-const copyEmail    = document.getElementById('copyEmail');
-const copyBadge    = document.getElementById('copyBadge');
-const typewriterEl = document.getElementById('typewriter');
+const navbar          = document.getElementById('navbar');
+const backToTop       = document.getElementById('backToTop');
+const cursorDot       = document.getElementById('cursorDot');
+const copyEmail       = document.getElementById('copyEmail');
+const copyBadge       = document.getElementById('copyBadge');
+const typewriterEl    = document.getElementById('typewriter');
 
-// ─── Mobile Menu Toggle ─────────────────────────────────
+// ─── Mobile Menu ────────────────────────────────────────
 menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
 });
-
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
 });
 
-// ─── Smooth Scroll for Anchor Links ─────────────────────
+// ─── Smooth Scroll ──────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const targetEl = document.querySelector(targetId);
-        if (targetEl) {
-            window.scrollTo({ top: targetEl.offsetTop - 70, behavior: 'smooth' });
-        }
-    });
+  anchor.addEventListener('click', function(e) {
+    const id = this.getAttribute('href');
+    if (id === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(id);
+    if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+  });
 });
 
-// ─── Scroll Indicator Click ──────────────────────────────
-if (scrollIndicator) {
-    scrollIndicator.addEventListener('click', () => {
-        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-    });
-}
+// ─── Scroll Indicator ───────────────────────────────────
+scrollIndicator?.addEventListener('click', () => {
+  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+});
 
-// ─── Scroll Event ────────────────────────────────────────
+// ─── Scroll Events ──────────────────────────────────────
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+  const y = window.scrollY;
 
-    // Hide scroll indicator
-    if (scrollIndicator) {
-        scrollIndicator.style.opacity  = scrollY > 100 ? '0' : '1';
-        scrollIndicator.style.visibility = scrollY > 100 ? 'hidden' : 'visible';
-    }
+  // Hide/show scroll indicator
+  if (scrollIndicator) {
+    scrollIndicator.style.opacity    = y > 80 ? '0' : '1';
+    scrollIndicator.style.visibility = y > 80 ? 'hidden' : 'visible';
+  }
 
-    // Navbar shrink on scroll
-    navbar.classList.toggle('scrolled', scrollY > 60);
+  // Navbar shrink
+  navbar.classList.toggle('scrolled', y > 60);
 
-    // Back-to-top visibility
-    backToTop.classList.toggle('visible', scrollY > 400);
+  // Back-to-top button
+  backToTop.classList.toggle('visible', y > 400);
 
-    // Active nav link tracking
-    const sections  = document.querySelectorAll('section');
-    const navAnchors = document.querySelectorAll('.nav-links a');
-    let current = '';
-    sections.forEach(section => {
-        if (scrollY >= section.offsetTop - 120) {
-            current = section.getAttribute('id');
-        }
-    });
-    navAnchors.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+  // Active nav link tracking
+  const sections = document.querySelectorAll('section');
+  const anchors  = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(s => {
+    if (y >= s.offsetTop - 130) current = s.id;
+  });
+  anchors.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+  });
 });
 
-// Set first nav link active on load
+// Set first link active on load
 document.querySelector('.nav-links a')?.classList.add('active');
 
-// ─── Back to Top ─────────────────────────────────────────
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Remove stats observer (stats removed from DOM)
+// statsObserver and animateCounter still defined but infoStats will be null — safe to leave
 
-// ─── IntersectionObserver for slide-up ──────────────────
+// ─── Back to Top ────────────────────────────────────────
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ─── IntersectionObserver: slide-up ─────────────────────
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-            // stagger within a group by index
-            const delay = Array.from(entry.target.parentElement?.children || []).indexOf(entry.target) * 80;
-            entry.target.style.transitionDelay = `${delay}ms`;
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { root: null, rootMargin: '0px', threshold: 0.12 });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const siblings = Array.from(entry.target.parentElement?.children || []);
+      const delay = siblings.indexOf(entry.target) * 80;
+      entry.target.style.transitionDelay = `${delay}ms`;
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
 
-// ─── Custom Cursor Dot ────────────────────────────────────
+// ─── Custom Cursor ───────────────────────────────────────
 if (window.matchMedia('(hover: hover)').matches && cursorDot) {
-    let mouseX = 0, mouseY = 0;
-    document.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top  = mouseY + 'px';
-    });
-
-    // Expand cursor over clickable elements
-    const hoverTargets = 'a, button, .skill-tag, .project-card-wrapper, .cert-card, .edu-card, .activity-item, .filter-tab';
-    document.querySelectorAll(hoverTargets).forEach(el => {
-        el.addEventListener('mouseenter', () => cursorDot.classList.add('expanded'));
-        el.addEventListener('mouseleave', () => cursorDot.classList.remove('expanded'));
-    });
+  document.addEventListener('mousemove', e => {
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top  = e.clientY + 'px';
+  });
+  const hoverTargets = 'a, button, .skill-tag, .cert-badge, .activity-card, .filter-tab, .article-card, .article-placeholder';
+  document.querySelectorAll(hoverTargets).forEach(el => {
+    el.addEventListener('mouseenter', () => cursorDot.classList.add('expanded'));
+    el.addEventListener('mouseleave', () => cursorDot.classList.remove('expanded'));
+  });
 }
 
-// ─── Typewriter Effect ────────────────────────────────────
+// ─── Typewriter ─────────────────────────────────────────
 const roles = [
-    'AI/ML & Full-Stack Developer',
-    'Machine Learning Engineer',
-    'Computer Vision Researcher',
-    'Full-Stack Developer',
-    'NLP Enthusiast'
+  'AI/ML & Full-Stack Developer',
+  'Machine Learning Engineer',
+  'Computer Vision Researcher',
+  'NLP Enthusiast',
+  'Builder & Writer'
 ];
-let roleIndex = 0;
-let charIndex  = 0;
-let isDeleting = false;
-const typeSpeed   = 80;
-const deleteSpeed = 40;
-const pauseAfter  = 1800;
+let rIdx = 0, cIdx = 0, deleting = false;
 
 function typeWriter() {
-    const currentRole = roles[roleIndex];
-    if (!isDeleting) {
-        typewriterEl.textContent = currentRole.slice(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === currentRole.length) {
-            isDeleting = true;
-            setTimeout(typeWriter, pauseAfter);
-            return;
-        }
-    } else {
-        typewriterEl.textContent = currentRole.slice(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-            isDeleting = false;
-            roleIndex  = (roleIndex + 1) % roles.length;
-        }
-    }
-    setTimeout(typeWriter, isDeleting ? deleteSpeed : typeSpeed);
+  const role = roles[rIdx];
+  typewriterEl.textContent = deleting ? role.slice(0, cIdx - 1) : role.slice(0, cIdx + 1);
+  deleting ? cIdx-- : cIdx++;
+  if (!deleting && cIdx === role.length) {
+    deleting = true;
+    setTimeout(typeWriter, 1900);
+    return;
+  }
+  if (deleting && cIdx === 0) {
+    deleting = false;
+    rIdx = (rIdx + 1) % roles.length;
+  }
+  setTimeout(typeWriter, deleting ? 38 : 75);
 }
-
 typeWriter();
 
-// ─── Animated Count-up for Stats ────────────────────────
+// ─── Animated Counter for Info Panel Stats ───────────────
 function animateCounter(el) {
-    const target = parseFloat(el.dataset.target);
-    const isDecimal = String(target).includes('.');
-    const duration = 1200;
-    const step     = 20;
-    const steps    = duration / step;
-    const increment = target / steps;
-    let current = 0;
+  const target = parseFloat(el.dataset.target);
+  const isDecimal = String(target).includes('.');
+  const duration = 1200;
+  const step = 20;
+  const steps = duration / step;
+  const increment = target / steps;
+  let current = 0;
 
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        el.textContent = isDecimal ? current.toFixed(2) : Math.floor(current);
-    }, step);
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = isDecimal ? current.toFixed(2) : Math.floor(current);
+  }, step);
 }
 
 const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
-            statsObserver.unobserve(entry.target);
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.info-stat-num[data-target]').forEach(animateCounter);
+      statsObserver.unobserve(entry.target);
+    }
+  });
 }, { threshold: 0.5 });
 
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
+const infoStats = document.querySelector('.info-stats');
+if (infoStats) statsObserver.observe(infoStats);
 
 // ─── Skill Filter Tabs ───────────────────────────────────
-const filterTabs = document.querySelectorAll('.filter-tab');
-const skillCategories = document.querySelectorAll('.skill-category');
+const filterTabs  = document.querySelectorAll('.filter-tab');
+const skillCards  = document.querySelectorAll('.skill-card');
 
 filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        filterTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const filter = tab.dataset.filter;
-        skillCategories.forEach(cat => {
-            if (filter === 'all' || cat.dataset.category === filter) {
-                cat.classList.remove('hidden');
-            } else {
-                cat.classList.add('hidden');
-            }
-        });
+  tab.addEventListener('click', () => {
+    filterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const f = tab.dataset.filter;
+    skillCards.forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
     });
+  });
+});
+
+// ─── Project Filter Tabs ─────────────────────────────────
+const projectFilterTabs = document.querySelectorAll('.project-filter-tab');
+const projectCards      = document.querySelectorAll('.project-card-wrapper');
+
+projectFilterTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    projectFilterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const f = tab.dataset.filter;
+    projectCards.forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
+    });
+  });
 });
 
 // ─── Skill Tag Toggle ────────────────────────────────────
 document.querySelectorAll('.skill-tag').forEach(tag => {
-    tag.addEventListener('click', () => {
-        tag.classList.toggle('active');
-    });
+  tag.addEventListener('click', () => tag.classList.toggle('active'));
 });
+
 
 // ─── Click-to-Copy Email ─────────────────────────────────
 if (copyEmail && copyBadge) {
-    copyEmail.addEventListener('click', () => {
-        navigator.clipboard.writeText('reddysathvik2005@gmail.com').then(() => {
-            copyBadge.classList.add('show');
-            setTimeout(() => copyBadge.classList.remove('show'), 2000);
-        }).catch(() => {
-            // Fallback for browsers without clipboard API
-            const el = document.createElement('textarea');
-            el.value = 'reddysathvik2005@gmail.com';
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            copyBadge.classList.add('show');
-            setTimeout(() => copyBadge.classList.remove('show'), 2000);
-        });
-    });
+  copyEmail.addEventListener('click', () => {
+    const email = 'reddysathvik2005@gmail.com';
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        copyBadge.classList.add('show');
+        setTimeout(() => copyBadge.classList.remove('show'), 2000);
+      })
+      .catch(() => {
+        const el = document.createElement('textarea');
+        el.value = email;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        copyBadge.classList.add('show');
+        setTimeout(() => copyBadge.classList.remove('show'), 2000);
+      });
+  });
 }
