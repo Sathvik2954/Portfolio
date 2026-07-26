@@ -2,7 +2,7 @@
 
 🌐 **Live:** [sathvik2954.netlify.app](https://sathvik2954.netlify.app/)
 
-A personal portfolio showcasing my projects, writing, skills, and experience in AI/ML and full-stack development — built from scratch with vanilla HTML, CSS, and JavaScript, no frameworks.
+A personal portfolio showcasing my projects, writing, skills, and experience in AI/ML and full-stack development - built from scratch with vanilla HTML, CSS, and JavaScript, no frameworks.
 
 ---
 
@@ -21,14 +21,14 @@ A personal portfolio showcasing my projects, writing, skills, and experience in 
 
 ## Sections
 
-- **Hero** — asymmetric two-column layout with typewriter role animation and quick-info panel
-- **About** — bio with interests and currently-building sidebar
-- **Education** — horizontal card timeline
-- **Skills** — filterable tag grid (Languages, Frameworks, ML/AI, Tools)
-- **Projects** — filterable flip-card grid (Full Stack, AIML, Data Science, SDE)
-- **Writing** — Medium article cards
-- **Certifications** — horizontal badge row
-- **Leadership** — activity cards
+- **Hero** - asymmetric two-column layout with typewriter role animation and quick-info panel
+- **About** - bio with interests and currently-building sidebar
+- **Education** - horizontal card timeline
+- **Skills** - filterable tag grid (Languages, Frameworks, ML/AI, Tools)
+- **Projects** - filterable flip-card grid (Full Stack, AIML, Data Science, SDE)
+- **Writing** - Medium article cards
+- **Certifications** - horizontal badge row
+- **Leadership** - activity cards
 
 ---
 

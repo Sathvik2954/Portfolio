@@ -8,7 +8,7 @@
 }
 
 :root {
-  /* Palette — unchanged */
+  /* Palette - unchanged */
   --white:          #ffffff;
   --black:          #000000;
   --gray-light:     #f8f9fa;
@@ -271,7 +271,7 @@ section { padding: var(--sp-2xl) 0; }
 @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 
 /* ═══════════════════════════════════════════════
-   HERO — ASYMMETRIC TWO-COLUMN
+   HERO - ASYMMETRIC TWO-COLUMN
    Signature element: stacked name with underlined middle word
 ═══════════════════════════════════════════════ */
 .hero {
@@ -408,9 +408,9 @@ section { padding: var(--sp-2xl) 0; }
   color: var(--gray-medium);
 }
 .info-links {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
 }
 .info-link {
   display: flex;
@@ -506,7 +506,7 @@ section { padding: var(--sp-2xl) 0; }
 .sidebar-list li:last-child { border-bottom: none; }
 
 /* ═══════════════════════════════════════════════
-   EDUCATION — HORIZONTAL TIMELINE
+   EDUCATION - HORIZONTAL TIMELINE
 ═══════════════════════════════════════════════ */
 .education {
   background:
@@ -515,21 +515,21 @@ section { padding: var(--sp-2xl) 0; }
 }
 .edu-timeline {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: var(--sp-lg);
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
   align-items: center;
 }
 .edu-arrow {
   color: var(--gray-medium);
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: center;
-  padding: var(--sp-md) 0;
+  padding: 0 4px;
 }
 .edu-card {
   border: 1px solid rgba(255,255,255,0.65);
   border-left: 3px solid var(--gray-medium);
   border-radius: var(--radius);
-  padding: var(--sp-lg);
+  padding: 18px 20px;
   background: rgba(255,255,255,0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -648,7 +648,7 @@ section { padding: var(--sp-2xl) 0; }
 }
 
 /* ═══════════════════════════════════════════════
-   PROJECTS — FLIP CARDS
+   PROJECTS - FLIP CARDS
 ═══════════════════════════════════════════════ */
 .projects {
   background:
@@ -802,7 +802,7 @@ section { padding: var(--sp-2xl) 0; }
 }
 
 /* ═══════════════════════════════════════════════
-   WRITING — MEDIUM ARTICLES
+   WRITING - MEDIUM ARTICLES
 ═══════════════════════════════════════════════ */
 .writing {
   background:

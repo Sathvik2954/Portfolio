@@ -70,7 +70,7 @@ window.addEventListener('scroll', () => {
 document.querySelector('.nav-links a')?.classList.add('active');
 
 // Remove stats observer (stats removed from DOM)
-// statsObserver and animateCounter still defined but infoStats will be null — safe to leave
+// statsObserver and animateCounter still defined but infoStats will be null - safe to leave
 
 // ─── Back to Top ────────────────────────────────────────
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -181,14 +181,23 @@ filterTabs.forEach(tab => {
 const projectFilterTabs = document.querySelectorAll('.project-filter-tab');
 const projectCards      = document.querySelectorAll('.project-card-wrapper');
 
+function applyProjectFilter(filter) {
+  projectCards.forEach(card => {
+    card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+  });
+}
+
+// Initial filter apply on page load
+const initialActiveTab = document.querySelector('.project-filter-tab.active');
+if (initialActiveTab) {
+  applyProjectFilter(initialActiveTab.dataset.filter);
+}
+
 projectFilterTabs.forEach(tab => {
   tab.addEventListener('click', () => {
     projectFilterTabs.forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
-    const f = tab.dataset.filter;
-    projectCards.forEach(card => {
-      card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
-    });
+    applyProjectFilter(tab.dataset.filter);
   });
 });
 
