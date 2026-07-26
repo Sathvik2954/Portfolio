@@ -183,7 +183,9 @@ const projectCards      = document.querySelectorAll('.project-card-wrapper');
 
 function applyProjectFilter(filter) {
   projectCards.forEach(card => {
-    card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+    const categories = (card.dataset.category || '').split(' ');
+    const matches = filter === 'all' || categories.includes(filter);
+    card.classList.toggle('hidden', !matches);
   });
 }
 

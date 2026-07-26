@@ -687,6 +687,7 @@ section { padding: var(--sp-2xl) 0; }
 .project-card-wrapper {
   perspective: 1000px;
   height: 490px;
+  cursor: pointer;
 }
 .project-card.flip-card {
   width: 100%; height: 100%;
@@ -694,7 +695,6 @@ section { padding: var(--sp-2xl) 0; }
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
 }
-.project-card-wrapper:hover .flip-card,
 .project-card-wrapper.flipped .flip-card { transform: rotateY(180deg); }
 
 .flip-front, .flip-back {
@@ -790,8 +790,10 @@ section { padding: var(--sp-2xl) 0; }
 }
 .project-badge.fullstack { background: var(--sky-bg);     color: var(--sky-text);     border-color: var(--sky-border); }
 .project-badge.aiml      { background: var(--purple-bg);  color: var(--purple-text);  border-color: #d8b4fe; }
+.project-badge.agenticai { background: var(--purple-bg);  color: var(--purple-text);  border-color: #c084fc; }
 .project-badge.datascience { background: var(--emerald-bg); color: var(--emerald-text); border-color: #6ee7b7; }
 .project-badge.sde       { background: var(--amber-bg);   color: var(--amber-text);   border-color: #fcd34d; }
+.project-badge.devops    { background: var(--sky-bg);     color: var(--sky-text);     border-color: #7dd3fc; }
 
 /* Disable flip on mobile */
 @media (max-width: 768px) {
