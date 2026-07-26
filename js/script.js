@@ -228,3 +228,10 @@ if (copyEmail && copyBadge) {
       });
   });
 }
+// ─── Project Card Click to Flip ────────────────────────────
+projectCards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    card.classList.toggle('flipped');
+  });
+});

@@ -694,7 +694,8 @@ section { padding: var(--sp-2xl) 0; }
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
 }
-.project-card-wrapper:hover .flip-card { transform: rotateY(180deg); }
+.project-card-wrapper:hover .flip-card,
+.project-card-wrapper.flipped .flip-card { transform: rotateY(180deg); }
 
 .flip-front, .flip-back {
   position: absolute;
